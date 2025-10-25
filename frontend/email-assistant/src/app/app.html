@@ -1,0 +1,27 @@
+<div class="email-container">
+    <label for="emailContent">Paste your email here:</label>
+    <textarea id="emailContent" [(ngModel)]="emailContent" placeholder="Paste email..." rows="8"></textarea>
+  
+    <label for="tone">Select Tone:</label>
+    <select id="tone" [(ngModel)]="tone">
+      <option value="friendly">Friendly</option>
+      <option value="angry">Angry</option>
+      <option value="casual">Casually</option>
+      <option value="professional">Professionally</option>
+      <option value="polite">Polite</option>
+      <option value="sarcastic">Sarcastic</option>
+      <option value="enthusiastic">Enthusiastic</option>
+    </select>
+
+    <button (click)="submitEmail()">Generate Reply</button>
+  </div>
+
+  <div *ngIf="emailReply" class="reply-section">
+    <div class="reply-container">
+      <button class="copy-btn" (click)="copyReply()">Copy Text</button>
+      <p>{{ emailReply }}</p>
+    </div>
+    <span *ngIf="copySuccess" class="copy-success">Text copied!</span>
+  </div>
+  
+  
